@@ -1,9 +1,8 @@
-duckdb==0.10.0
-pandas==2.2.0
-requests==2.31.0
-beautifulsoup4==4.12.3
-streamlit==1.31.0
-plotly==5.18.0
-python-dotenv==1.0.0
-numpy==1.26.4
-altair==4.2.2
+duckdb
+pandas
+requests
+beautifulsoup4
+streamlit
+plotly
+python-dotenv
+numpy
