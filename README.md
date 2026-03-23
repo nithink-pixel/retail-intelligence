@@ -1,27 +1,69 @@
-# Real-Time Retail Price Intelligence Engine
+# 📊 Real-Time Retail Price Intelligence Engine
 
-An automated pricing intelligence system that scrapes live product data, detects price anomalies, and surfaces insights through a live dashboard — running continuously with zero manual intervention.
+> An automated pricing intelligence system that scrapes live product data, detects price anomalies, and surfaces insights through a live public dashboard — running continuously with zero manual intervention.
 
-**Live Dashboard:** https://nithin-retail-intelligence.streamlit.app
+## 🔴 Live Dashboard
+**[Open Live Dashboard →](https://nithin-retail-intelligence.streamlit.app)**
 
-## What it does
-- Scrapes pricing data across 100+ products every 6 hours automatically
+## What It Does
+- Scrapes pricing data across 100+ products automatically every 6 hours
 - Loads into a DuckDB warehouse via structured SQL transformations
 - Detects price shifts greater than 5% and fires alerts
-- Serves a live Streamlit dashboard with interactive filters and trend charts
-
-## Stack
-Python · DuckDB · SQL · Streamlit · Plotly · GitHub Actions · BeautifulSoup
+- Serves a live Streamlit dashboard with interactive filters, trend charts, and a price alert feed
 
 ## Architecture
-Scraper (Python) → DuckDB warehouse → Anomaly detection engine → Live Streamlit dashboard
-Scheduler: GitHub Actions runs the full pipeline every 6 hours automatically
+cd ~/retail-intelligence
+cat > README.md << 'EOF'
+# 📊 Real-Time Retail Price Intelligence Engine
 
-## Project structure
+> An automated pricing intelligence system that scrapes live product data, detects price anomalies, and surfaces insights through a live public dashboard — running continuously with zero manual intervention.
+
+## 🔴 Live Dashboard
+**[Open Live Dashboard →](https://nithin-retail-intelligence.streamlit.app)**
+
+## What It Does
+- Scrapes pricing data across 100+ products automatically every 6 hours
+- Loads into a DuckDB warehouse via structured SQL transformations
+- Detects price shifts greater than 5% and fires alerts
+- Serves a live Streamlit dashboard with interactive filters, trend charts, and a price alert feed
+
+## Architecture
+```
+Web Sources → Python Scraper → DuckDB Warehouse → Anomaly Engine → Streamlit Dashboard
+                                                          ↑
+                                               GitHub Actions (every 6h)
+```
+
+## Tech Stack
+| Layer | Tools |
+|---|---|
+| Scraping | Python, BeautifulSoup, Requests |
+| Warehouse | DuckDB, SQL |
+| Transformation | Pandas, SQL CTEs |
+| Dashboard | Streamlit, Plotly |
+| Automation | GitHub Actions |
+
+## Key Features
+- **Zero manual intervention** after setup — fully automated end to end
+- **Anomaly detection** flags any product with price shift greater than 5%
+- **Interactive dashboard** with rating filters, price range slider, and live alert feed
+- **Production architecture** — same pattern used by retail pricing teams
+
+## Project Structure
 ```
 retail-intelligence/
-├── scraper/          # Web scraping pipeline
-├── database/         # DuckDB warehouse + SQL transformations
-├── dashboard/        # Streamlit app
-└── .github/workflows # Automated scheduler
+├── scraper/
+│   └── scrape_prices.py       # Web scraping pipeline
+├── database/
+│   ├── load_prices.py         # DuckDB loader + anomaly detection
+│   └── schema.sql             # Table definitions
+├── dashboard/
+│   └── app.py                 # Streamlit dashboard
+├── packages.txt               # System dependencies
+├── requirements.txt           # Python dependencies
+└── README.md
 ```
+
+## Screenshots
+Built and deployed in a single session. Live at:
+**https://nithin-retail-intelligence.streamlit.app**
