@@ -5,5 +5,5 @@ beautifulsoup4
 plotly
 python-dotenv
 numpy
-altair==4.2.2
-streamlit==1.28.0
+pillow==11.1.0
+streamlit==1.43.0
