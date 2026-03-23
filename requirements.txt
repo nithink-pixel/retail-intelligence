@@ -5,5 +5,4 @@ beautifulsoup4
 plotly
 python-dotenv
 numpy
-pillow==11.1.0
-streamlit==1.43.0
+streamlit
